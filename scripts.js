@@ -17,6 +17,16 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
 
+    // Function to set active navigation link
+    const setActiveNavLink = (targetId) => {
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('data-target') === targetId) {
+                link.classList.add('active');
+            }
+        });
+    };
+
     // Carousel functionality
     const initializeCarousel = () => {
         const carousel = document.querySelector('.carousel');
@@ -49,8 +59,9 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // Show only the home section on page load
+    // Show home section and highlight home link on page load
     showSection('home');
+    setActiveNavLink('home');
 
     // Add click event listeners to navigation links
     navLinks.forEach(link => {
@@ -58,10 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const target = link.getAttribute('data-target');
 
-            // Remove active class from all links
-            navLinks.forEach(l => l.classList.remove('active'));
-            // Add active class to clicked link
-            link.classList.add('active');
+            // Remove active class from all links and set active link
+            setActiveNavLink(target);
 
             // Show the corresponding section
             showSection(target);
