@@ -23,21 +23,90 @@
   <main id="content">
     <!-- Home -->
     <section id="home">
-      <div class="container hero">
-        <h1>Welcome to Cheng Lab!</h1>
-        <p class="lead"></p>
+      <div class="container home-hero">
+        <div class="home-content card card-pad">
+          <p class="eyebrow">Epigenetic control of gastrulation</p>
+          <h1>Building maps of chromatin regulation in the early mouse embryo</h1>
+          <p class="lead">We investigate how histone modifications, chromatin architecture, and lineage cues shape mouse gastrulation, combining embryo models with pathway dissection.</p>
 
-        <div class="carousel" aria-label="Image carousel">
-          <button class="carousel-button prev" aria-label="Previous image">&#10094;</button>
-          <div class="carousel-track">
-            <img src="./img/image.png" alt="Image 1">
-            <img src="./img/Group2.jpg" alt="Image 2">
+          <ul class="pill-list">
+            <li>Mouse embryo models at E7.5</li>
+            <li>Histone modification dynamics</li>
+            <li>Single-cell and multi-omics readouts</li>
+          </ul>
+
+          <div class="focus-grid">
+            <div>
+              <h3>Epigenetic memory</h3>
+              <p class="lead">How H3K9 methylation safeguards developmental identity across cell states.</p>
+            </div>
+            <div>
+              <h3>Lineage coordination</h3>
+              <p class="lead">Linking chromatin remodeling with morphogen gradients during gastrulation.</p>
+            </div>
           </div>
-          <button class="carousel-button next" aria-label="Next image">&#10095;</button>
         </div>
 
-        <div class="carousel-caption">
-          <p></p>
+        <div class="home-visual">
+          <div class="scene-card embryo card card-pad">
+            <div class="scene-heading">
+              <span class="badge">E7.5</span>
+              <div>
+                <p class="eyebrow">Embryo model</p>
+                <h3>Gastrulation landscape</h3>
+              </div>
+            </div>
+            <p class="lead">A simplified epiblast view highlighting symmetry breaking and germ layer emergence.</p>
+            <div class="embryo-graphic" role="img" aria-label="Illustration of a mouse embryo at E7.5 with germ layers">
+              <span class="embryo-layer ectoderm"></span>
+              <span class="embryo-layer mesoderm"></span>
+              <span class="embryo-layer endoderm"></span>
+              <span class="embryo-axis">AP</span>
+            </div>
+          </div>
+
+          <div class="scene-card dna card card-pad">
+            <div class="scene-heading">
+              <span class="badge">Chromatin</span>
+              <div>
+                <p class="eyebrow">DNA & histones</p>
+                <h3>Nucleosome dynamics</h3>
+              </div>
+            </div>
+            <p class="lead">DNA wrapped around histone cores with dynamic acetylation and methylation states.</p>
+            <div class="helix" role="img" aria-label="Stylized DNA wrapped on histones">
+              <span class="helix-strand"></span>
+              <span class="helix-strand"></span>
+              <div class="histone"></div>
+              <div class="histone second"></div>
+              <div class="histone third"></div>
+            </div>
+          </div>
+
+          <div class="scene-card pathway card card-pad">
+            <div class="scene-heading">
+              <span class="badge">H3K9</span>
+              <div>
+                <p class="eyebrow">Methylation pathway</p>
+                <h3>Silencing cascade</h3>
+              </div>
+            </div>
+            <p class="lead">Key regulators guiding heterochromatin formation and epigenetic memory.</p>
+            <ol class="pathway-flow" aria-label="H3K9 methylation pathway">
+              <li>
+                <span class="node">SETDB1</span>
+                <p>Deposits H3K9me2/3 on lineage-restricted loci.</p>
+              </li>
+              <li>
+                <span class="node">HP1</span>
+                <p>Reads methyl marks and compacts chromatin.</p>
+              </li>
+              <li>
+                <span class="node">DNMTs</span>
+                <p>Stabilize silencing through DNA methylation hand-off.</p>
+              </li>
+            </ol>
+          </div>
         </div>
       </div>
     </section>
