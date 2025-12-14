@@ -1,190 +1,255 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personal website</title>
-    <link rel="stylesheet" href="./style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#131313">
+  <title>Cheng Lab</title>
+  <link rel="stylesheet" href="./style.css">
 </head>
 <body>
-    <header>
-        <nav>
+  <header>
+    <nav aria-label="Primary">
+      <ul>
+        <li><a href="#home" data-target="home">Home</a></li>
+        <li><a href="#research" data-target="research">Research</a></li>
+        <li><a href="#team" data-target="team">Team</a></li>
+        <li><a href="#pub" data-target="pub">Publications</a></li>
+        <li><a href="#contact" data-target="contact">Join us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="content">
+    <!-- Home -->
+    <section id="home">
+      <div class="container hero">
+        <h1>Welcome to Cheng Lab!</h1>
+        <p class="lead"></p>
+
+        <div class="carousel" aria-label="Image carousel">
+          <button class="carousel-button prev" aria-label="Previous image">&#10094;</button>
+          <div class="carousel-track">
+            <img src="./img/image.png" alt="Image 1">
+            <img src="./img/Group2.jpg" alt="Image 2">
+          </div>
+          <button class="carousel-button next" aria-label="Next image">&#10095;</button>
+        </div>
+
+        <div class="carousel-caption">
+          <p></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Research -->
+    <section id="research">
+      <div class="container">
+        <h2>Research</h2>
+
+        <div class="panel-list">
+          <article class="panel panel--media">
+            <img src="./img/TET.png" alt="Research image">
+            <div class="panel-body">
+                <h3>The intrinsic and extrinsic effects of TET proteins during gastrulation</h3>
+                <p class="lead">
+                This work demonstrates an unbiased approach for defining intrinsic 
+                and extrinsic embryonic gene function based on temporal differentiation 
+                atlases and disentangles the intracellular effects of the demethylation 
+                machinery from its broader tissue-level ramifications.
+              </p>
+              <p><strong>Cell. 185, 3169-3185.</strong></p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Team -->
+    <section id="team">
+      <div class="container">
+        <h2>Principal Investigator</h2>
+        <div class="team-grid team-grid--two">
+          <div class="team-member">
+            <img src="./img/People/CSF.png" alt="Saifeng Cheng">
+            <div class="member-info">
+              <h3>Saifeng Cheng</h3>
+              <p>Assistant Professor</p>
+              <p>Principal Investigator, Westlake University</p>
+              <p>Postdoctoral Fellow, Weizmann Institute of Science</p>
+              <p>Ph.D degree, Huazhong Agricultural University</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- 分割 -->
+        <hr class="divider">
+
+        <!-- Graduate student -->
+        <h2>Current Members</h2>
+        <div class="team-grid team-grid--two">
+          <div class="team-member">
+            <img src="./img/People/WJF.jpg" alt="Jinfang Wang">
+            <div class="member-info">
+              <h3>Jinfang Wang</h3>
+              <p><strong>Postdoctoral Fellow</strong></p>
+              <p>Postdoctoral Fellow, Westlake University</p>
+              <p>PhD degree, Xiamen University</p>
+              <p>Bacher degree, Soochow University</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/People/ZY.jpg" alt="Ying Zhu">
+            <div class="member-info">
+              <h3>Ying Zhu</h3>
+              <p><strong>Graduate student</strong></p>
+              <p>PhD student, Westlake University (2024)</p>
+              <p>Bacher degree, Shenzhen University</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/People/DSL.jpg" alt="Shuailin Du">
+            <div class="member-info">
+              <h3>Shuailin Du</h3>
+              <p><strong>Graduate student</strong></p>
+              <p>PhD student, Westlake University (2024)</p>
+              <p>Master degree, Xiamen University</p>
+              <p>Bachelor degree, Zhejiang Chinese Medical University</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/People/HJY.jpg" alt="Jinyi He">
+            <div class="member-info">
+              <h3>Jinyi He</h3>
+              <p><strong>Graduate student</strong></p>
+              <p>PhD student, Westlake University (2025)</p>
+              <p>Bachelor degree, Zhejiang Normal University</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/image.png" alt="Jing Qian">
+            <div class="member-info">
+              <h3>Jing Qian</h3>
+              <p><strong>Graduate student</strong></p>
+              <p>PhD student, Westlake University (2025)</p>
+              <p>Bachelor degree, Soochow University</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/image.png" alt="Shuo Wang">
+            <div class="member-info">
+              <h3>Shuo Wang</h3>
+              <p><strong>Graduate student</strong></p>
+              <p>PhD student, Westlake University (2025)</p>
+              <p>Bachelor degree, Soochow University</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/People/GQ.pic.jpg" alt="Qi Geng">
+            <div class="member-info">
+              <h3>Qi Geng</h3>
+              <p><strong>Visiting student</strong></p>
+                <p>Visiting student, Westlake University (2025-)</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/People/" alt="Qi Geng">
+            <div class="member-info">
+              <h3>Ranjie Don</h3>
+              <p><strong>Research Assistant</strong></p>
+                <p>Research Assistant, Westlake University (2025-)</p>
+                <p>Master degree, Sichuan Agricultural University</p>
+                <p>Bachelor degree,  Sichuan University of Traditional Chinese Medicine</p>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 分割 -->
+        <hr class="divider">
+
+        <h2>Alumni</h2>
+        <!-- <div class="team-grid team-grid--two">
+          <div class="team-member">
+            <img src="./img/image copy.png" alt="Member">
+            <div class="member-info">
+              <h3>member</h3>
+              <p>Visiting Student</p>
+              <p>2024.10-2025.1</p>
+            </div>
+          </div>
+        </div> -->
+      </div>
+    </section>
+
+    <!-- Publication -->
+    <section id="pub">
+      <div class="container">
+        <h2>Publication</h2>
+        <ul class="publication-list">
+<li>[1] Yoav Mayshar*, Ofir Raz*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Netta Reines, Markus Mittnenzweig, Oren Ben-Kiki, Aviezer Lifshitz, Amos Tanay#, Yonatan Stelzer#. (2023). Time-aligned hourglass gastrulation models in rabbit and mouse. <em><b>Cell </b></em>186, 2610-2627.e18. 10.1016/j.cell.2023.04.037.</li><br/>
+<li>[2] Marko Dunjić*, Felix Jonas*, Gilad Yaakov*, Roye More, Yoav Mayshar, Yoach Rais, Ayelet-Hashahar Orenbuch, <b>Saifeng Cheng</b>, Naama Barkai, Yonatan Stelzer. (2023). Histone exchange sensors reveal variant specific dynamics in mouse embryonic stem cells. <em><b>Nat Commun</b></em> 14, 1-19. 10.1038/s41467-023-39477-3.</li><br/>
+<li>[3] <b>Saifeng Cheng</b>, Yoav Mayshar, Yonatan Stelzer. (2023). Induced epigenetic changes memorized across generations in mice. <em><b>Cell</b></em> 186, 683-685. 10.1016/j.cell.2023.01.023.</li><br/>
+<li>[4] <b>Saifeng Cheng*</b>, Markus Mittnenzweig*, Yoav Mayshar, Aviezer Lifshitz, Marko Dunjić, Yoach Rais, Raz Ben-Yair, Stephanie Gehrs, Elad Chomsky, Zohar Mukamel, Hernan Rubinstein, Katharina Schlereth, Netta Reines, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2022). The intrinsic and extrinsic effects of TET proteins during gastrulation. <em><b>Cell</b></em> 185, 3169-3185.e20.</li><br/>
+<li>[5] Markushtdocs://localhost:8080/ Mittnenzweig*, Yoav Mayshar*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Yoach Rais, Elad Chomsky, Netta Reines, Anna Uzonyi, Lior Lumerman, Aviezer Lifshitz, Zohar Mukamel, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2021). A single-embryo, single-cell time-resolved model for mouse gastrulation. <em><b>Cell</b></em> 184, 2825-2842.e22. 10.1016/j.cell.2021.04.004.</li><br/>
+<li>[6] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li><br/>
+<li>[7] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li><br/>
+</ul>
+        <a class="google_scholar" href="https://scholar.google.com/citations?hl=en&amp;user=rYfo4WcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar : https://scholar.google.com/</a>
+      </div>
+    </section>
+
+    <!-- Join us -->
+    <section id="contact">
+      <div class="container">
+        <div class="join-info">
+          <div class="join-content">
+            <h2>Positions</h2>
+
+            <h3>Post-doctoral position</h3>
+            <p>Job Responsibilities : </p>
             <ul>
-                <li><a href="#home" data-target="home">Home</a></li>
-                <li><a href="#research" data-target="research">Research</a></li>
-                <li><a href="#team" data-target="team">Team</a></li>
-                <li><a href="#pub" data-target="pub">Publications</a></li>
-                <li><a href="#contact" data-target="contact">Join us</a></li>
+                <li>1. Undertake or participate in research projects and apply for postdoctoral research funding;</li>
+                <li>2. Develop research plans and promote project progress, analyze experimental data, and write reports and papers;</li>
+                <li>3. Develop new experimental techniques related to the research group's focus areas;</li>
+                <li>4. Participate in the scientific training of group members.</li>
             </ul>
-        </nav>
-    </header>
+            <p>Job Requirements : </p>
+            <ul>
+                <li>After complete doctoral research training, possessing or soon to obtain a PhD in Biochemistry and Molecular Biology, Developmental Biology, Stem Cell Biology, Bioinformatics, or related fields;</li>
+                <li>Having a background in epigenetics research, with experience in mammalian stem cell culture, flow cytometry sorting, and high-throughput sequencing;</li>
+                <li>Strong self-learning ability and problem-solving skills, unafraid of challenges, and willing to experiment;</li>
+                <li>Experience in embryo dissection, gene editing and screening, adenovirus or lentivirus packaging, or a background in computational biology will be given preference.</li>
+            </ul> 
+            <br/> 
+            <h3>Graduate students</h3>
+              <p>If you are insterested in epigenetics and embryo development, please have a try in our lab!</p>
 
-    <main id="content">
-        <!-- Home -->
-        <section id="home">
-            <h1>Welcome to Cheng Lab!</h1>
-            <p></p>
-            <div class="carousel">
-                <button class="carousel-button prev" aria-label="Previous image">&#10094;</button>
-                <div class="carousel-track">
-                    <img src="./img/image.png" alt="Image 1">
-                    <img src="./img/image copy.png" alt="Image 2">
-                </div>
-                <button class="carousel-button next" aria-label="Next image">&#10095;</button>
-            </div>
-            <div class="carousel-caption">
-                <p></p>
-            </div>
-        </section>
 
-        <!-- Research -->
-        <section id="research">
-            <div class="research-content">
-                <img src="./img/image copy.png"><br>
-                <p style="font-size: 18px;">Our research primarily focuses on the roles of transcription 
-                    factors and epigenetic modifications in the development of ... The lab aims to uncover 
-                    the underlying mechanisms of gene expression regulation and their impact on developmental 
-                    processes through a combination of molecular biology, genetics, and bioinformatics approaches.</p>
-            </div>
-        </section>
 
-        <!-- Team -->
-        <section id="team">
-            <h2>Team members</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="./img/image copy.png" alt="Member 1">
-                    <div class="member-info">
-                        <h3>Saifeng Cheng</h3>
-                        <p>Assistant Professor</p>
-                        <p>-</p>
-                        <p>-</p>
-                        <p>-</p>
-                    </div>
-                </div>
+            <h2>Contact us</h2>
+            <p>If you are interested in join us, please email me!</p>
+            <p><b>Email</b> : chengsaifeng[at]westlake.edu.cn</p>
+            <p><b>Address</b> : 3-228/229, Yunqi campus, Westlake University, Hang Zhou, China</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
-                <div class="team-member">
-                    <img src="./img/image copy.png" alt="Member 2">
-                    <div class="member-info">
-                        <h3>member A</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Cheng Lab.</p>
+    </div>
+  </footer>
 
-                <div class="team-member">
-                    <img src="./img/image.png" alt="Member 3">
-                    <div class="member-info">
-                        <h3>member 3</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="./img/image.png" alt="Member 4">
-                    <div class="member-info">
-                        <h3>member 3</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="./img/image.png" alt="Member 5">
-                    <div class="member-info">
-                        <h3>member 3</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="./img/image.png" alt="Member 6">
-                    <div class="member-info">
-                        <h3>member 3</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="./img/image.png" alt="Member 7">
-                    <div class="member-info">
-                        <h3>member 3</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
-
-                <div class="team-member">
-                    <img src="./img/image.png" alt="Member 8">
-                    <div class="member-info">
-                        <h3>member 3</h3>
-                        <p>Graduate student</p>
-                    </div>
-                </div>
-            </div>
-
-            <hr class="divider">
-            <h2>Alumi</h2>
-            <div class="team-grid">
-                <div class="team-member">
-                    <img src="./img/image copy.png" alt="Member 1">
-                    <div class="member-info">
-                        <h3>member</h3>
-                        <p>Visiting Student</p>
-                        <p>2024.10-2025.1</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Publication -->
-        <section id="pub">
-            <h2>Publication</h2>
-            <ul class="publication-list">
-                <li>[1] Yoav Mayshar*, Ofir Raz*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Netta Reines, Markus Mittnenzweig, Oren Ben-Kiki, Aviezer Lifshitz, Amos Tanay#, Yonatan Stelzer#. (2023). Time-aligned hourglass gastrulation models in rabbit and mouse. <em><b>Cell </b></em>186, 2610-2627.e18. 10.1016/j.cell.2023.04.037.</li><br>
-                <li>[2] Marko Dunjić*, Felix Jonas*, Gilad Yaakov*, Roye More, Yoav Mayshar, Yoach Rais, Ayelet-Hashahar Orenbuch, <b>Saifeng Cheng</b>, Naama Barkai, Yonatan Stelzer. (2023). Histone exchange sensors reveal variant specific dynamics in mouse embryonic stem cells. <em><b>Nat Commun</b></em> 14, 1-19. 10.1038/s41467-023-39477-3.</li><br>
-                <li>[3] <b>Saifeng Cheng</b>, Yoav Mayshar, Yonatan Stelzer. (2023). Induced epigenetic changes memorized across generations in mice. <em><b>Cell</b></em> 186, 683-685. 10.1016/j.cell.2023.01.023.</li><br>
-                <li>[4] <b>Saifeng Cheng*</b>, Markus Mittnenzweig*, Yoav Mayshar, Aviezer Lifshitz, Marko Dunjić, Yoach Rais, Raz Ben-Yair, Stephanie Gehrs, Elad Chomsky, Zohar Mukamel, Hernan Rubinstein, Katharina Schlereth, Netta Reines, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2022). The intrinsic and extrinsic effects of TET proteins during gastrulation. <em><b>Cell</b></em> 185, 3169-3185.e20.</li><br>
-                <li>[5] Markushtdocs://localhost:8080/ Mittnenzweig*, Yoav Mayshar*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Yoach Rais, Elad Chomsky, Netta Reines, Anna Uzonyi, Lior Lumerman, Aviezer Lifshitz, Zohar Mukamel, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2021). A single-embryo, single-cell time-resolved model for mouse gastrulation. <em><b>Cell</b></em> 184, 2825-2842.e22. 10.1016/j.cell.2021.04.004.</li><br>
-                <li>[6] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li><br>
-                <li>[7] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li><br>
-            </ul>
-            <a href="https://scholar.google.com/citations?hl=en&user=rYfo4WcAAAAJ&view_op=list_works&sortby=pubdate" class="google_scholar">Google Scholar : https://scholar.google.com/</a>
-        </section>
-
-        <!-- Join us -->
-        <section id="contact">
-            <div class="join-info">
-                <div class="join-content">
-                    <h2>Positions</h2>
-                    <h3>Post-doctoral position</h3>
-                    <ul>
-                        <li>Familiar with ... experiments</li>
-                        <li>Skills</li>
-                    </ul><br>
-
-                    <h3>Graduate students</h3>
-                    <ul>
-                        <li>Familiar with ... experiments</li>
-                        <li>Skills</li>
-                    </ul><br>
-
-                    <h3>Research assistant</h3>
-                    <ul>
-                        <li>Familiar with ... experiments</li>
-                        <li>Skills</li>
-                    </ul><br>
-
-                    <h2>Contact us</h2>
-                    <p>If you are interested in join us, please contact by email with CV.</p><br>
-                    <p><b>Email</b> : chengsaifeng[at]westlake.edu.cn</p>
-                    <p><b>Address</b> : Westlake University, Hang Zhou, China</p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 Cheng Lab.</p>
-    </footer>
-    <br><br><br>
-
-    <script src="./scripts.js"></script>
+  <script src="./scripts.js"></script>
+</body>
 </html>
