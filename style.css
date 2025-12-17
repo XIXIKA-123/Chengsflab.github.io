@@ -189,7 +189,7 @@ h3{
 
 .card-pad{ padding: 18px; }
 
-/* team card 基础宽度统一 */
+/* team card 鍩虹瀹藉害缁熶竴 */
 .team-card {
   max-width: 520px;
   margin: 0 auto;
@@ -197,6 +197,10 @@ h3{
 
 
 /* Home / Hero */
+#home{
+  min-height: auto;
+}
+
 .hero{
   display: grid;
   gap: 14px;
@@ -409,7 +413,7 @@ footer{
   background: rgba(255,255,255,.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  padding: 10px 0;
+  padding: 0px 0;
   text-align: center;
   color: var(--muted);
 }
@@ -513,4 +517,246 @@ footer{
     --avatar-w: 100px;
     --avatar-h: 126px;
   }
+}
+
+
+/* Home v3 (chenlab-inspired) */
+body.home-v3{
+  overflow: hidden;
+}
+
+body.home-v3 #home.active-section{
+  display: block;
+}
+
+#home .homev3{
+  position: relative;
+  width: min(100%, 1180px);
+}
+
+#home .homev3::before{
+  content: "";
+  position: absolute;
+  inset: -18px -22px;
+  background:
+    radial-gradient(900px 520px at 20% 12%, rgba(182,216,255,.55), transparent 60%),
+    radial-gradient(760px 520px at 80% 18%, rgba(232,205,255,.55), transparent 60%),
+    radial-gradient(760px 520px at 60% 92%, rgba(255,220,186,.55), transparent 60%);
+  filter: blur(18px);
+  z-index: -1;
+}
+
+#home .homev3-top{
+  text-align: left;
+  padding: 14px 0 10px;
+}
+
+#home .homev3-kicker{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.78);
+  border: 1px solid rgba(0,0,0,.08);
+  box-shadow: 0 10px 22px rgba(0,0,0,.06);
+  color: rgba(0,0,0,.68);
+  font-weight: 650;
+  letter-spacing: .2px;
+}
+
+#home .homev3-kickerDot{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(62,129,255,.9);
+  box-shadow: 0 0 0 6px rgba(62,129,255,.12);
+}
+
+#home .homev3-title{
+  margin: 12px 0 10px;
+  font-size: clamp(32px, 4.6vw, 46px);
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+}
+
+#home .homev3-lead{
+  margin: 0;
+  font-size: 18px;
+  color: var(--muted);
+  max-width: 118ch;
+}
+
+#home .homev3-grid{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: stretch;
+}
+
+#home .homev3-card{
+  border-radius: 28px;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+#home .homev3-cardHead{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 16px 18px 10px;
+}
+
+#home .homev3-pill{
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 14px;
+  border-radius: 999px;
+  font-weight: 800;
+  /* letter-spacing: .18em; */
+  font-size: 12px;
+  color: rgba(0,0,0,.72);
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(0,0,0,.10);
+}
+
+/* #home .homev3-meta{
+  color: rgba(0,0,0,.55);
+  font-weight: 650;
+  font-size: 13px;
+  text-align: right;
+} */
+
+#home .homev3-figureStage{
+  padding: 0 16px 8px;
+}
+
+#home .homev3-figure{
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 22px;
+  border: 1px solid rgba(0,0,0,.08);
+}
+
+#home .homev3-pre{
+  margin: 0;
+  padding: 10px 18px 6px;
+  overflow: auto;
+
+  font-family: "JetBrains Mono","Fira Code","Cascadia Code","SF Mono",Menlo,Monaco,Consolas,
+    ui-monospace,"Liberation Mono","Courier New",monospace;
+  font-size: 13.5px;
+  line-height: 1.7;
+  font-variant-ligatures: contextual;
+  color: rgba(0,0,0,.78);
+
+  white-space: pre;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+#home .homev3-pre code{
+  display: block;
+  min-width: 520px;
+  background: transparent;
+}
+
+
+
+/* #home .homev3-codeLegend{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 18px 6px;
+  color: rgba(0,0,0,.56);
+  font-weight: 650;
+  flex-wrap: wrap;
+}
+
+#home .homev3-legendItem{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 10px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.68);
+  border: 1px solid rgba(0,0,0,.08);
+} */
+
+#home .homev3-swatch{
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 5px rgba(0,0,0,.06);
+}
+
+#home .homev3-swatch.sw1{ background: rgba(62,129,255,.9); box-shadow: 0 0 0 5px rgba(62,129,255,.14); }
+#home .homev3-swatch.sw2{ background: rgba(168,108,255,.92); box-shadow: 0 0 0 5px rgba(168,108,255,.14); }
+#home .homev3-swatch.sw3{ background: rgba(255,159,62,.92); box-shadow: 0 0 0 5px rgba(255,159,62,.14); }
+
+#home .homev3-cardFoot{
+  padding: 12px 18px 18px;
+  color: rgba(0,0,0,.62);
+  font-size: 15px;
+}
+
+#home .homev3-cardFoot strong{
+  color: rgba(0,0,0,.78);
+}
+
+#home .homev3-bottom{
+  margin-top: 14px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+#home .homev3-tags{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+#home .homev3-tag{
+  display: inline-flex;
+  align-items: center;
+  height: 34px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.75);
+  border: 1px solid rgba(0,0,0,.08);
+  color: rgba(0,0,0,.62);
+  font-weight: 650;
+  font-size: 13px;
+}
+
+#home [data-reveal]{
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity .5s ease, transform .5s ease;
+}
+
+#home .is-revealed{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce){
+  #home [data-reveal]{ transition: none; }
+  #home .homev3-card{ transform: none !important; }
+}
+
+@media (max-width: 980px){
+  body.home-v3{ overflow: auto; }
+  body.is-home{ overflow: auto; }
+  #home{ min-height: auto; }
+  #home.active-section{ display: block; }
+  #home .homev3-grid{ grid-template-columns: 1fr; }
+  #home .homev3-pre code{ min-width: 0; }
 }
