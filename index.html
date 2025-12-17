@@ -23,26 +23,82 @@
   <main id="content">
     <!-- Home -->
     <section id="home">
-      <div class="container hero">
-        <h1>Welcome to Cheng Lab!</h1>
-        <p class="lead"></p>
-
-        <div class="carousel" aria-label="Image carousel">
-          <button class="carousel-button prev" aria-label="Previous image">&#10094;</button>
-          <div class="carousel-track">
-            <img src="./img/image.png" alt="Image 1">
-            <img src="./img/Group2.jpg" alt="Image 2">
-          </div>
-          <button class="carousel-button next" aria-label="Next image">&#10095;</button>
+      <div class="container homev3">
+        <div class="homev3-top" data-reveal>
+          
+          <h1 class="homev3-title">
+            Epigenetic Regulation in Development Laboratory
+          </h1>
+          <br/>
+          <p class="homev3-lead">
+            Gastrulation is a pivotal window in mouse development: epiblast cells undergo coordinated
+            morphogenesis and fate decisions to establish the three germ layers. We build quantitative, time-resolved views
+            of these transitions and test how gene regulation and chromatin mechanisms shape lineage commitment.
+          </p>
         </div>
 
-        <div class="carousel-caption">
-          <p></p>
+        <div class="homev3-grid">
+          <article class="homev3-card homev3-figure card" data-tilt data-reveal aria-label="Figure: E7.5 overview and H3K9 methylation example">
+            <div class="homev3-cardHead">
+              <span class="homev3-pill">Experiment</span>
+            </div>
+
+            <div class="homev3-figureStage" aria-hidden="true">
+              <img src="./img/Home.png" alt="Figure: E7.5" class="homev3-figure">
+            </div>
+
+            <!-- <div class="homev3-cardFoot">
+              Time-resolved, single-embryo atlases connect transcriptional trajectories to regulatory checkpoints during gastrulation.
+            </div> -->
+          </article>
+
+          <article class="homev3-card homev3-code card" data-tilt data-reveal aria-label="Model: pseudo-code for regulatory logic">
+            <div class="homev3-cardHead">
+              <span class="homev3-pill">Computational methods</span>
+              <!-- <span class="homev3-meta"></span> -->
+            </div>
+
+            <pre class="homev3-pre">
+              <code>import anndata as ad
+import metacells as mc
+import scipy.sparse as sp
+import matplotlib.pyplot as plt
+from math import hypot
+
+mc.pl.exclude_genes(raw,
+                    excluded_gene_names==gene_list,
+                    excluded_gene_patterns=gene_patterns,
+                    random_seed=123456)
+                  
+metacells = mc.pl.collect_metacells(raw, 
+                                    name='metacells',
+                                    random_seed=123456)
+              </code>
+            </pre>
+
+            <!-- <div class="homev3-codeLegend" aria-label="Legend">
+              <span class="homev3-legendItem"><i class="homev3-swatch sw1" aria-hidden="true"></i>signaling</span>
+              <span class="homev3-legendItem"><i class="homev3-swatch sw2" aria-hidden="true"></i>transcription</span>
+              <span class="homev3-legendItem"><i class="homev3-swatch sw3" aria-hidden="true"></i>chromatin</span>
+            </div> -->
+
+            <!-- <div class="homev3-cardFoot">
+              <strong>Import data -  Build metacells - Visualize projection</strong>
+            </div> -->
+          </article>
+        </div>
+
+        <div class="homev3-bottom" data-reveal>
+          <div class="homev3-tags" aria-label="Keywords">
+            <span class="homev3-tag">Gastrulation</span>
+            <span class="homev3-tag">Single-embryo resolution</span>
+            <span class="homev3-tag">H3K9 methylation</span>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Research -->
+<!-- Research -->
     <section id="research">
       <div class="container">
         <h2>Research</h2>
@@ -95,7 +151,7 @@
               <p><strong>Postdoctoral Fellow</strong></p>
               <p>Postdoctoral Fellow, Westlake University</p>
               <p>PhD degree, Xiamen University</p>
-              <p>Bacher degree, Soochow University</p>
+              <p>Bachelor degree, Soochow University</p>
             </div>
           </div>
 
@@ -103,9 +159,9 @@
             <img src="./img/People/ZY.jpg" alt="Ying Zhu">
             <div class="member-info">
               <h3>Ying Zhu</h3>
-              <p><strong>Graduate student</strong></p>
+              <p><strong>PhD student</strong></p>
               <p>PhD student, Westlake University (2024)</p>
-              <p>Bacher degree, Shenzhen University</p>
+              <p>Bachelor degree, Shenzhen University</p>
             </div>
           </div>
 
@@ -113,7 +169,7 @@
             <img src="./img/People/DSL.jpg" alt="Shuailin Du">
             <div class="member-info">
               <h3>Shuailin Du</h3>
-              <p><strong>Graduate student</strong></p>
+              <p><strong>PhD student</strong></p>
               <p>PhD student, Westlake University (2024)</p>
               <p>Master degree, Xiamen University</p>
               <p>Bachelor degree, Zhejiang Chinese Medical University</p>
@@ -124,27 +180,27 @@
             <img src="./img/People/HJY.jpg" alt="Jinyi He">
             <div class="member-info">
               <h3>Jinyi He</h3>
-              <p><strong>Graduate student</strong></p>
+              <p><strong>PhD student</strong></p>
               <p>PhD student, Westlake University (2025)</p>
               <p>Bachelor degree, Zhejiang Normal University</p>
             </div>
           </div>
 
           <div class="team-member">
-            <img src="./img/image.png" alt="Jing Qian">
+            <img src="./img/People/QJ.jpg" alt="Jing Qian">
             <div class="member-info">
               <h3>Jing Qian</h3>
-              <p><strong>Graduate student</strong></p>
+              <p><strong>PhD student</strong></p>
               <p>PhD student, Westlake University (2025)</p>
               <p>Bachelor degree, Soochow University</p>
             </div>
           </div>
 
           <div class="team-member">
-            <img src="./img/image.png" alt="Shuo Wang">
+            <img src="./img/People/WS.jpg" alt="Shuo Wang">
             <div class="member-info">
               <h3>Shuo Wang</h3>
-              <p><strong>Graduate student</strong></p>
+              <p><strong>PhD student</strong></p>
               <p>PhD student, Westlake University (2025)</p>
               <p>Bachelor degree, Soochow University</p>
             </div>
@@ -160,9 +216,20 @@
           </div>
 
           <div class="team-member">
-            <img src="./img/People/" alt="Qi Geng">
+            <img src="./img/People/" alt="Jieran Don">
             <div class="member-info">
-              <h3>Ranjie Don</h3>
+              <h3>Jieran Don</h3>
+              <p><strong>Research Assistant</strong></p>
+                <p>Research Assistant, Westlake University (2025-)</p>
+                <p>Master degree, Sichuan Agricultural University</p>
+                <p>Bachelor degree,  Sichuan University of Traditional Chinese Medicine</p>
+            </div>
+          </div>
+
+          <div class="team-member">
+            <img src="./img/People/" alt="Weiyuan Ma">
+            <div class="member-info">
+              <h3>Weiyuan Ma</h3>
               <p><strong>Research Assistant</strong></p>
                 <p>Research Assistant, Westlake University (2025-)</p>
                 <p>Master degree, Sichuan Agricultural University</p>
@@ -194,13 +261,15 @@
       <div class="container">
         <h2>Publication</h2>
         <ul class="publication-list">
-<li>[1] Yoav Mayshar*, Ofir Raz*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Netta Reines, Markus Mittnenzweig, Oren Ben-Kiki, Aviezer Lifshitz, Amos Tanay#, Yonatan Stelzer#. (2023). Time-aligned hourglass gastrulation models in rabbit and mouse. <em><b>Cell </b></em>186, 2610-2627.e18. 10.1016/j.cell.2023.04.037.</li><br/>
-<li>[2] Marko Dunjić*, Felix Jonas*, Gilad Yaakov*, Roye More, Yoav Mayshar, Yoach Rais, Ayelet-Hashahar Orenbuch, <b>Saifeng Cheng</b>, Naama Barkai, Yonatan Stelzer. (2023). Histone exchange sensors reveal variant specific dynamics in mouse embryonic stem cells. <em><b>Nat Commun</b></em> 14, 1-19. 10.1038/s41467-023-39477-3.</li><br/>
-<li>[3] <b>Saifeng Cheng</b>, Yoav Mayshar, Yonatan Stelzer. (2023). Induced epigenetic changes memorized across generations in mice. <em><b>Cell</b></em> 186, 683-685. 10.1016/j.cell.2023.01.023.</li><br/>
-<li>[4] <b>Saifeng Cheng*</b>, Markus Mittnenzweig*, Yoav Mayshar, Aviezer Lifshitz, Marko Dunjić, Yoach Rais, Raz Ben-Yair, Stephanie Gehrs, Elad Chomsky, Zohar Mukamel, Hernan Rubinstein, Katharina Schlereth, Netta Reines, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2022). The intrinsic and extrinsic effects of TET proteins during gastrulation. <em><b>Cell</b></em> 185, 3169-3185.e20.</li><br/>
-<li>[5] Markushtdocs://localhost:8080/ Mittnenzweig*, Yoav Mayshar*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Yoach Rais, Elad Chomsky, Netta Reines, Anna Uzonyi, Lior Lumerman, Aviezer Lifshitz, Zohar Mukamel, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2021). A single-embryo, single-cell time-resolved model for mouse gastrulation. <em><b>Cell</b></em> 184, 2825-2842.e22. 10.1016/j.cell.2021.04.004.</li><br/>
-<li>[6] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li><br/>
-<li>[7] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li><br/>
+<li>[1] Akhiad Bercovich, Aviezer Lifshitz, Michal Eldar, <b>Saifeng Cheng</b>, Roni Stok Ranen, Yonatan Stelzer, Amos Tanay#. (2025). IceQream: Quantitative chromosome accessibility analysis using physical TF models. <em><b>Nature Communication</b></em> 16, 8984. 10.1038/s41467-025-63925-x.</li><br/>
+<li>[2] Ron Hadas*, Hernan Rubinstein*, Markus Mittnenzweig*, Yoav Mayshar, Raz Ben-Yair, <b>Saifeng Cheng</b>, Alejandro Aguilera-Castrejon, Netta Reines, Ayelet-Hashahar Orenbuch, Aviezer Lifshitz, Dong-Yuan Chen, Michael B Elowitz, Magdalena Zernicka-Goetz, Jacob H Hanna, Amos Tanay#, Yonatan Stelzer#. (2024). Temporal BMP4 effects on mouse embryonic and extraembryonic development. <em><b>Science</b></em> 634, 652-661. 10.1038/s41586-024-07937-5</li><br/>
+<li>[3] Yoav Mayshar*, Ofir Raz*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Netta Reines, Markus Mittnenzweig, Oren Ben-Kiki, Aviezer Lifshitz, Amos Tanay#, Yonatan Stelzer#. (2023). Time-aligned hourglass gastrulation models in rabbit and mouse. <em><b>Cell </b></em>186, 2610-2627.e18. 10.1016/j.cell.2023.04.037.</li><br/>
+<li>[4] Marko Dunjić*, Felix Jonas*, Gilad Yaakov*, Roye More, Yoav Mayshar, Yoach Rais, Ayelet-Hashahar Orenbuch, <b>Saifeng Cheng</b>, Naama Barkai, Yonatan Stelzer. (2023). Histone exchange sensors reveal variant specific dynamics in mouse embryonic stem cells. <em><b>Nat Commun</b></em> 14, 1-19. 10.1038/s41467-023-39477-3.</li><br/>
+<li>[5] <b>Saifeng Cheng</b>, Yoav Mayshar, Yonatan Stelzer. (2023). Induced epigenetic changes memorized across generations in mice. <em><b>Cell</b></em> 186, 683-685. 10.1016/j.cell.2023.01.023.</li><br/>
+<li>[6] <b>Saifeng Cheng*</b>, Markus Mittnenzweig*, Yoav Mayshar, Aviezer Lifshitz, Marko Dunjić, Yoach Rais, Raz Ben-Yair, Stephanie Gehrs, Elad Chomsky, Zohar Mukamel, Hernan Rubinstein, Katharina Schlereth, Netta Reines, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2022). The intrinsic and extrinsic effects of TET proteins during gastrulation. <em><b>Cell</b></em> 185, 3169-3185.e20.</li><br/>
+<li>[7] Markus Mittnenzweig*, Yoav Mayshar*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Yoach Rais, Elad Chomsky, Netta Reines, Anna Uzonyi, Lior Lumerman, Aviezer Lifshitz, Zohar Mukamel, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2021). A single-embryo, single-cell time-resolved model for mouse gastrulation. <em><b>Cell</b></em> 184, 2825-2842.e22. 10.1016/j.cell.2021.04.004.</li><br/>
+<li>[8] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li><br/>
+<li>[9] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li><br/>
 </ul>
         <a class="google_scholar" href="https://scholar.google.com/citations?hl=en&amp;user=rYfo4WcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar : https://scholar.google.com/</a>
       </div>
@@ -214,21 +283,11 @@
             <h2>Positions</h2>
 
             <h3>Post-doctoral position</h3>
-            <p>Job Responsibilities : </p>
-            <ul>
-                <li>1. Undertake or participate in research projects and apply for postdoctoral research funding;</li>
-                <li>2. Develop research plans and promote project progress, analyze experimental data, and write reports and papers;</li>
-                <li>3. Develop new experimental techniques related to the research group's focus areas;</li>
-                <li>4. Participate in the scientific training of group members.</li>
-            </ul>
-            <p>Job Requirements : </p>
-            <ul>
-                <li>After complete doctoral research training, possessing or soon to obtain a PhD in Biochemistry and Molecular Biology, Developmental Biology, Stem Cell Biology, Bioinformatics, or related fields;</li>
-                <li>Having a background in epigenetics research, with experience in mammalian stem cell culture, flow cytometry sorting, and high-throughput sequencing;</li>
-                <li>Strong self-learning ability and problem-solving skills, unafraid of challenges, and willing to experiment;</li>
-                <li>Experience in embryo dissection, gene editing and screening, adenovirus or lentivirus packaging, or a background in computational biology will be given preference.</li>
-            </ul> 
-            <br/> 
+            <p>We are looking for motivated postdoctoral fellows with strong background in developmental biology,
+               epigenetics, single-cell genomics, computational biology or related fields. Candidates with 
+               experience in mouse embryology and gene editing are highly preferred. Please send your CV, 
+               research interests and contact information of three references to me.</p> 
+              <br/>
             <h3>Graduate students</h3>
               <p>If you are insterested in epigenetics and embryo development, please have a try in our lab!</p>
 
