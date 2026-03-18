@@ -191,4 +191,35 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setActiveNav(validTarget);
   showSection(validTarget);
+
+
+    // ---- UMAP iframe view switch (2D / 3D) ----
+    const umapFrame = document.getElementById('umapFrame');
+    const umapButtons = Array.from(document.querySelectorAll('[data-umap-view]'));
+  
+    const umapSrcMap = {
+      '3d': './embeds/Metacell_3D_UMAP_filtered_embed.html',
+      '2d': './embeds/Metacell_2D_UMAP_filtered_embed.html'
+    };
+  
+    const setUmapView = (view) => {
+      if (!umapFrame || !umapSrcMap[view]) return;
+  
+      umapFrame.src = umapSrcMap[view];
+  
+      umapButtons.forEach((btn) => {
+        const active = btn.getAttribute('data-umap-view') === view;
+        btn.classList.toggle('is-active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+    };
+  
+    umapButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const view = btn.getAttribute('data-umap-view');
+        if (!view) return;
+        setUmapView(view);
+      });
+    });
+  
 });

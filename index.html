@@ -27,7 +27,7 @@
         <div class="homev3-top" data-reveal>
           
           <h1 class="homev3-title">
-            Epigenetic Regulation in Development Laboratory
+            Epigenetic Regulation in Development
           </h1>
           <br/>
           <p class="homev3-lead">
@@ -43,9 +43,38 @@
               <span class="homev3-pill">Experiment</span>
             </div>
 
-            <div class="homev3-figureStage" aria-hidden="true">
-              <img src="./img/" alt="Figure: E7.5" class="homev3-figure">
-            </div>
+            <!-- <div class="homev3-figureStage" aria-hidden="true">
+              <img src="./img/Home.png" alt="Figure: E7.5" class="homev3-figure">
+            </div> -->
+            <div class="homev3-figureStage umap-embed-wrap">
+              <div class="umap-switch" role="tablist" aria-label="UMAP 视图切换">
+                <button
+                  type="button"
+                  class="umap-btn is-active"
+                  data-umap-view="3d"
+                  aria-selected="true"
+                >
+                  3D UMAP
+                </button>
+                <button
+                  type="button"
+                  class="umap-btn"
+                  data-umap-view="2d"
+                  aria-selected="false"
+                >
+                  2D UMAP
+                </button>
+              </div>
+            
+              <iframe
+                id="umapFrame"
+                src="./embeds/Metacell_3D_UMAP_filtered_embed.html"
+                class="umap-embed"
+                title="Metacell UMAP"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+              ></iframe>
+            </div>     
 
             <!-- <div class="homev3-cardFoot">
               Time-resolved, single-embryo atlases connect transcriptional trajectories to regulatory checkpoints during gastrulation.
