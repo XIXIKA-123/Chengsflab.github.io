@@ -1,225 +1,168 @@
 document.addEventListener('DOMContentLoaded', () => {
+
+  /* ===== Theme Toggle ===== */
+  const themeToggle = document.getElementById('themeToggle');
+  const root = document.documentElement;
+  const savedTheme = localStorage.getItem('chenglab-theme');
+  if (savedTheme === 'dark') root.setAttribute('data-theme', 'dark');
+  themeToggle?.addEventListener('click', () => {
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    if (isDark) { root.removeAttribute('data-theme'); localStorage.setItem('chenglab-theme', 'light'); }
+    else { root.setAttribute('data-theme', 'dark'); localStorage.setItem('chenglab-theme', 'dark'); }
+  });
+
+  /* ===== Landing page ===== */
+  const landing = document.getElementById('landing');
+  const landingEnter = landing?.querySelector('.landing-enter');
+
+  const dismissLanding = () => {
+    if (!landing || landing.classList.contains('is-hidden')) return;
+    landing.classList.add('is-hidden');
+    landing.addEventListener('transitionend', () => landing.classList.add('is-gone'), { once: true });
+  };
+  landingEnter?.addEventListener('click', (e) => { e.stopPropagation(); dismissLanding(); });
+  landing?.addEventListener('click', (e) => {
+    if (e.target.closest('.landing-enter')) return;
+    dismissLanding();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (landing && !landing.classList.contains('is-hidden') && (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape')) dismissLanding();
+  });
+
+  /* ===== Section navigation ===== */
   const sections = Array.from(document.querySelectorAll('main section'));
   const navLinks = Array.from(document.querySelectorAll('nav a[data-target]'));
+  const homeState = { mounted: false, stop: null };
+  const researchCarouselState = { mounted: false, index: 0, goTo: null };
 
-  const carouselState = {
-    mounted: false,
-    index: 0,
-    timerId: null,
-    step: null,
-    start: null,
-    stop: null,
-  };
-
-  const homeV3State = {
-    mounted: false,
-    stop: null,
-  };
-
-  const mountHomeV3Once = () => {
-    if (homeV3State.mounted) return;
-
+  const mountHomeOnce = () => {
+    if (homeState.mounted) return;
     const home = document.getElementById('home');
     if (!home) return;
-
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const revealEls = Array.from(home.querySelectorAll('[data-reveal]'));
-
     const reveal = (el) => el.classList.add('is-revealed');
-
     let observer = null;
     if (!reduced && 'IntersectionObserver' in window) {
-      observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-
-          reveal(entry.target);
-          observer?.unobserve(entry.target);
-        });
-      }, { threshold: 0.15 });
-
+      observer = new IntersectionObserver((entries) => { entries.forEach((entry) => { if (!entry.isIntersecting) return; reveal(entry.target); observer?.unobserve(entry.target); }); }, { threshold: 0.15 });
       revealEls.forEach((el) => observer?.observe(el));
-    } else {
-      revealEls.forEach(reveal);
-    }
-
-    const cleanups = [];
-    const canTilt = !reduced && window.matchMedia('(pointer: fine)').matches;
-    const tiltEls = canTilt ? Array.from(home.querySelectorAll('[data-tilt]')) : [];
-
-    const mountTilt = (el) => {
-      let rafId = 0;
-      let rect = null;
-
-      const updateRect = () => { rect = el.getBoundingClientRect(); };
-      const clearTransform = () => { el.style.transform = ''; };
-
-      const onMove = (e) => {
-        if (!rect) updateRect();
-
-        const dx = (e.clientX - (rect.left + rect.width / 2)) / rect.width;
-        const dy = (e.clientY - (rect.top + rect.height / 2)) / rect.height;
-
-        window.cancelAnimationFrame(rafId);
-        rafId = window.requestAnimationFrame(() => {
-          el.style.transform = `translateY(-2px) rotateX(${(-dy * 6).toFixed(2)}deg) rotateY(${(dx * 10).toFixed(2)}deg)`;
-        });
-      };
-
-      const onEnter = () => updateRect();
-      const onLeave = () => { window.cancelAnimationFrame(rafId); clearTransform(); };
-
-      el.addEventListener('mousemove', onMove);
-      el.addEventListener('mouseenter', onEnter);
-      el.addEventListener('mouseleave', onLeave);
-
-      return () => {
-        el.removeEventListener('mousemove', onMove);
-        el.removeEventListener('mouseenter', onEnter);
-        el.removeEventListener('mouseleave', onLeave);
-        window.cancelAnimationFrame(rafId);
-        clearTransform();
-      };
-    };
-
-    tiltEls.forEach((el) => cleanups.push(mountTilt(el)));
-
-    homeV3State.stop = () => {
-      observer?.disconnect();
-      cleanups.forEach((fn) => fn());
-      homeV3State.mounted = false;
-      homeV3State.stop = null;
-    };
-
-    homeV3State.mounted = true;
+    } else { revealEls.forEach(reveal); }
+    homeState.stop = () => { observer?.disconnect(); homeState.mounted = false; homeState.stop = null; };
+    homeState.mounted = true;
   };
 
+  /* ===== Research Carousel ===== */
+  const mountResearchCarousel = () => {
+    if (researchCarouselState.mounted) return;
+    const track = document.getElementById('researchCarousel');
+    if (!track) return;
+    const slides = Array.from(track.querySelectorAll('.research-slide'));
+    if (slides.length === 0) return;
+    const prevBtn = document.getElementById('researchPrev');
+    const nextBtn = document.getElementById('researchNext');
+    const dots = Array.from(document.querySelectorAll('#researchDots .dot'));
 
-  const setActiveNav = (targetId) => {
-    navLinks.forEach((link) => {
-      const isActive = link.getAttribute('data-target') === targetId;
-      link.classList.toggle('active', isActive);
-      link.setAttribute('aria-current', isActive ? 'page' : 'false');
+    const goTo = (idx, direction) => {
+      const current = researchCarouselState.index;
+      const next = ((idx % slides.length) + slides.length) % slides.length;
+      if (next === current) return;
+
+      // Determine direction for exit animation
+      const goingForward = direction !== undefined ? direction : next > current;
+
+      // Exit current slide
+      slides[current].classList.remove('active');
+      slides[current].classList.add(goingForward ? 'exit-left' : '');
+      slides[current].style.transform = goingForward ? 'translateX(-40px)' : 'translateX(40px)';
+      slides[current].style.opacity = '0';
+
+      // Enter next slide
+      slides[next].style.transform = goingForward ? 'translateX(40px)' : 'translateX(-40px)';
+      slides[next].style.opacity = '0';
+      slides[next].classList.add('active');
+
+      // Force reflow then animate in
+      void slides[next].offsetWidth;
+      slides[next].style.transform = 'translateX(0)';
+      slides[next].style.opacity = '1';
+
+      // Clean up exit classes after transition
+      setTimeout(() => {
+        slides[current].classList.remove('exit-left');
+        slides[current].style.transform = '';
+        slides[current].style.opacity = '';
+      }, 550);
+
+      researchCarouselState.index = next;
+
+      // Update dots
+      dots.forEach((d, i) => d.classList.toggle('active', i === next));
+    };
+
+    researchCarouselState.goTo = goTo;
+
+    nextBtn?.addEventListener('click', () => { goTo(researchCarouselState.index + 1, true); });
+    prevBtn?.addEventListener('click', () => { goTo(researchCarouselState.index - 1, false); });
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        const idx = parseInt(dot.getAttribute('data-index'), 10);
+        const dir = idx > researchCarouselState.index;
+        goTo(idx, dir);
+      });
     });
+
+    // Ensure first slide is active
+    slides.forEach((s, i) => {
+      if (i === 0) { s.classList.add('active'); }
+      else { s.classList.remove('active'); }
+    });
+
+    researchCarouselState.mounted = true;
   };
 
+  const setActiveNav = (targetId) => { navLinks.forEach((link) => { const isActive = link.getAttribute('data-target') === targetId; link.classList.toggle('active', isActive); link.setAttribute('aria-current', isActive ? 'page' : 'false'); }); };
   const showSection = (targetId) => {
-    sections.forEach((section) => section.classList.remove('active-section'));
-
-    const targetSection = document.getElementById(targetId);
-    if (!targetSection) return;
-
-    targetSection.classList.add('active-section');
+    sections.forEach((s) => s.classList.remove('active-section'));
+    const t = document.getElementById(targetId); if (!t) return;
+    t.classList.add('active-section');
     document.body.classList.toggle('is-home', targetId === 'home');
-    document.body.classList.toggle('home-v3', targetId === 'home');
-
-    if (targetId === 'home') mountCarouselOnce();
-    if (targetId === 'home') mountHomeV3Once();
-    if (targetId !== 'home') carouselState.stop?.();
-    if (targetId !== 'home') homeV3State.stop?.();
-
+    if (targetId === 'home') mountHomeOnce();
+    if (targetId === 'research') mountResearchCarousel();
+    if (targetId !== 'home') homeState.stop?.();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const mountCarouselOnce = () => {
-    if (carouselState.mounted) {
-      carouselState.start?.();
-      return;
-    }
-
-    const carousel = document.querySelector('.carousel');
-    if (!carousel) return;
-
-    const images = Array.from(carousel.querySelectorAll('.carousel-track img'));
-    if (images.length === 0) return;
-
-    const nextButton = carousel.querySelector('.carousel-button.next');
-    const prevButton = carousel.querySelector('.carousel-button.prev');
-
-    const setActiveImage = (nextIndex) => {
-      const safeIndex = ((nextIndex % images.length) + images.length) % images.length;
-
-      images.forEach((img, idx) => img.classList.toggle('active', idx === safeIndex));
-      carouselState.index = safeIndex;
-    };
-
-    const step = (delta) => setActiveImage(carouselState.index + delta);
-
-    const start = () => {
-      if (carouselState.timerId !== null) return;
-
-      carouselState.timerId = window.setInterval(() => step(1), 4500);
-    };
-
-    const stop = () => {
-      if (carouselState.timerId === null) return;
-
-      window.clearInterval(carouselState.timerId);
-      carouselState.timerId = null;
-    };
-
-    carouselState.step = step;
-    carouselState.start = start;
-    carouselState.stop = stop;
-
-    nextButton?.addEventListener('click', () => step(1));
-    prevButton?.addEventListener('click', () => step(-1));
-
-    carousel.addEventListener('mouseenter', stop);
-    carousel.addEventListener('mouseleave', start);
-
-    setActiveImage(0);
-    start();
-
-    carouselState.mounted = true;
-  };
-
-  navLinks.forEach((link) => {
-    link.addEventListener('click', (e) => {
-      e.preventDefault();
-
-      const targetId = link.getAttribute('data-target');
-      if (!targetId) return;
-
-      setActiveNav(targetId);
-      showSection(targetId);
-    });
-  });
-
+  navLinks.forEach((link) => { link.addEventListener('click', (e) => { e.preventDefault(); const id = link.getAttribute('data-target'); if (!id) return; setActiveNav(id); showSection(id); }); });
   const initialTarget = (location.hash || '#home').replace('#', '');
   const validTarget = sections.some((s) => s.id === initialTarget) ? initialTarget : 'home';
+  setActiveNav(validTarget); showSection(validTarget);
 
-  setActiveNav(validTarget);
-  showSection(validTarget);
+  /* ===== UMAP lazy loading ===== */
+  const umapFrame = document.getElementById('umapFrame');
+  const umapPlaceholder = document.getElementById('umapPlaceholder');
+  const umapWrap = document.getElementById('umapWrap');
+  const umapButtons = Array.from(document.querySelectorAll('[data-umap-view]'));
+  const umapSrcMap = { '3d': './embeds/Metacell_3D_UMAP_filtered_embed.html', '2d': './embeds/Metacell_2D_UMAP_filtered_embed.html' };
+  let umapLoaded = false; let currentUmapView = '3d';
 
+  const loadUmap = (view) => {
+    if (!umapFrame) return;
+    currentUmapView = view || '3d';
+    if (umapPlaceholder && !umapLoaded) umapPlaceholder.innerHTML = '<div class="umap-spinner"></div><span>Loading visualization...</span>';
+    const src = umapSrcMap[currentUmapView]; if (!src) return;
+    umapFrame.src = src;
+    umapFrame.onload = () => { umapLoaded = true; umapPlaceholder?.classList.add('is-hidden'); umapFrame.style.opacity = '1'; umapFrame.style.transition = 'opacity .4s ease'; };
+  };
 
-    // ---- UMAP iframe view switch (2D / 3D) ----
-    const umapFrame = document.getElementById('umapFrame');
-    const umapButtons = Array.from(document.querySelectorAll('[data-umap-view]'));
-  
-    const umapSrcMap = {
-      '3d': './embeds/Metacell_3D_UMAP_filtered_embed.html',
-      '2d': './embeds/Metacell_2D_UMAP_filtered_embed.html'
-    };
-  
-    const setUmapView = (view) => {
-      if (!umapFrame || !umapSrcMap[view]) return;
-  
-      umapFrame.src = umapSrcMap[view];
-  
-      umapButtons.forEach((btn) => {
-        const active = btn.getAttribute('data-umap-view') === view;
-        btn.classList.toggle('is-active', active);
-        btn.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-    };
-  
-    umapButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const view = btn.getAttribute('data-umap-view');
-        if (!view) return;
-        setUmapView(view);
-      });
-    });
-  
+  if (umapWrap && 'IntersectionObserver' in window) {
+    const obs = new IntersectionObserver((entries) => { entries.forEach((e) => { if (e.isIntersecting) { loadUmap('3d'); obs.unobserve(e.target); } }); }, { rootMargin: '200px' });
+    obs.observe(umapWrap);
+  } else { loadUmap('3d'); }
+
+  const setUmapView = (view) => {
+    if (!umapFrame || !umapSrcMap[view]) return;
+    umapLoaded = false; loadUmap(view);
+    umapButtons.forEach((btn) => { const a = btn.getAttribute('data-umap-view') === view; btn.classList.toggle('is-active', a); btn.setAttribute('aria-selected', a ? 'true' : 'false'); });
+  };
+  umapButtons.forEach((btn) => { btn.addEventListener('click', () => { const v = btn.getAttribute('data-umap-view'); if (!v) return; setUmapView(v); }); });
 });
