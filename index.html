@@ -3,11 +3,34 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#131313">
+  <meta name="theme-color" content="#f5f5f7">
   <title>Cheng Lab</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
+
+  <!-- Landing / Splash Page -->
+  <div id="landing" aria-label="Welcome to Cheng Lab">
+    <!-- Dreamy background blobs -->
+    <div class="landing-dream" aria-hidden="true">
+      <div class="landing-blob landing-blob-1"></div>
+      <div class="landing-blob landing-blob-2"></div>
+      <div class="landing-blob landing-blob-3"></div>
+      <div class="landing-blob landing-blob-4"></div>
+    </div>
+    <div class="landing-card">
+      <div class="landing-content">
+        <h1 class="landing-title">Cheng Lab</h1>
+        <button class="landing-enter" type="button">
+          <span>Enter</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <header>
     <nav aria-label="Primary">
       <ul>
@@ -17,152 +40,105 @@
         <li><a href="#pub" data-target="pub">Publications</a></li>
         <li><a href="#contact" data-target="contact">Join us</a></li>
       </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+      </button>
     </nav>
   </header>
 
   <main id="content">
-    <!-- Home -->
     <section id="home">
-      <div class="container homev3">
-        <div class="homev3-top" data-reveal>
-          
-          <h1 class="homev3-title">
-            Epigenetic Regulation in Development
-          </h1>
-          <br/>
-          <p class="homev3-lead">
-            Gastrulation is a pivotal window in mouse development: epiblast cells undergo coordinated
-            morphogenesis and fate decisions to establish the three germ layers. We build quantitative, time-resolved views
-            of these transitions and test how gene regulation and chromatin mechanisms shape lineage commitment.
-          </p>
+      <div class="container home-shell">
+        <div class="home-hero" data-reveal>
+          <p class="home-kicker">Cheng Lab · Westlake University</p>
+          <h1 class="home-title">Epigenetic Regulation in Development</h1>
+          <p class="home-lead">Gastrulation is a pivotal window in mouse development: epiblast cells undergo coordinated morphogenesis and fate decisions to establish the three germ layers. We build quantitative, time-resolved views of these transitions and test how gene regulation and chromatin mechanisms shape lineage commitment.</p>
         </div>
 
-        <div class="homev3-grid">
-          <article class="homev3-card homev3-figure card" data-tilt data-reveal aria-label="Figure: E7.5 overview and H3K9 methylation example">
-            <div class="homev3-cardHead">
-              <span class="homev3-pill">Experiment</span>
-            </div>
-
-            <!-- <div class="homev3-figureStage" aria-hidden="true">
-              <img src="./img/Home.png" alt="Figure: E7.5" class="homev3-figure">
-            </div> -->
-            <div class="homev3-figureStage umap-embed-wrap">
-              <div class="umap-switch" role="tablist" aria-label="UMAP 视图切换">
-                <button
-                  type="button"
-                  class="umap-btn is-active"
-                  data-umap-view="3d"
-                  aria-selected="true"
-                >
-                  3D UMAP
-                </button>
-                <button
-                  type="button"
-                  class="umap-btn"
-                  data-umap-view="2d"
-                  aria-selected="false"
-                >
-                  2D UMAP
-                </button>
+        <div class="home-workbench" data-reveal>
+          <article class="home-atlas" aria-label="Single-cell embryo atlas UMAP visualization">
+            <div class="atlas-head">
+              <div>
+                <h2 class="atlas-title">Single-Cell Embryo Atlas</h2>
+                <p class="atlas-caption">Metacell projection for time-resolved gastrulation states.</p>
               </div>
-            
-              <iframe
-                id="umapFrame"
-                src="./embeds/Metacell_3D_UMAP_filtered_embed.html"
-                class="umap-embed"
-                title="Metacell UMAP"
-                loading="lazy"
-                referrerpolicy="no-referrer"
-              ></iframe>
-            </div>     
-
-            <!-- <div class="homev3-cardFoot">
-              Time-resolved, single-embryo atlases connect transcriptional trajectories to regulatory checkpoints during gastrulation.
-            </div> -->
+              <div class="umap-switch" role="tablist" aria-label="UMAP view switch">
+                <button type="button" class="umap-btn is-active" data-umap-view="3d" aria-selected="true">3D</button>
+                <button type="button" class="umap-btn" data-umap-view="2d" aria-selected="false">2D</button>
+              </div>
+            </div>
+            <div class="atlas-stage umap-embed-wrap" id="umapWrap">
+              <div class="umap-placeholder" id="umapPlaceholder">
+                <div class="umap-placeholder-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-9-9"/><path d="M21 3v6h-6"/></svg></div>
+                <span>Loading 3D UMAP visualization...</span>
+              </div>
+              <iframe id="umapFrame" data-src="./embeds/Metacell_3D_UMAP_filtered_embed.html" class="umap-embed" title="Metacell UMAP" style="opacity:0"></iframe>
+            </div>
           </article>
 
-          <article class="homev3-card homev3-code card" data-tilt data-reveal aria-label="Model: pseudo-code for regulatory logic">
-            <div class="homev3-cardHead">
-              <span class="homev3-pill">Computational methods</span>
-              <!-- <span class="homev3-meta"></span> -->
+          <aside class="home-method" aria-label="Computational method for metacell analysis">
+            <div class="method-copy">
+              <p class="method-label">Computational Method</p>
+              <h2 class="method-title">From single-cell matrix to metacell projection</h2>
+              <p class="method-route">single-cell matrix -&gt; gene filtering -&gt; metacell projection</p>
+              <p class="method-summary">A fixed random seed keeps gene filtering and metacell collection reproducible before projecting the grouped cells into UMAP space.</p>
             </div>
-
-            <pre class="homev3-pre">
-              <code>import anndata as ad
+            <pre class="method-code" aria-label="Metacell calculation method"><code>import anndata as ad
 import metacells as mc
-import scipy.sparse as sp
-import matplotlib.pyplot as plt
-from math import hypot
 
-mc.pl.exclude_genes(raw,
-                    excluded_gene_names==gene_list,
-                    excluded_gene_patterns=gene_patterns,
-                    random_seed=123456)
-                  
-metacells = mc.pl.collect_metacells(raw, 
-                                    name='metacells',
-                                    random_seed=123456)
-              </code>
-            </pre>
+raw = ad.read_h5ad("gastrulation.h5ad")
+mc.pl.exclude_genes(raw, excluded_gene_names=gene_list, random_seed=123456)
+metacells = mc.pl.collect_metacells(raw, name="metacells", random_seed=123456)
+mc.pl.umap_by_metacell(metacells)</code></pre>
+          </aside>
+        </div>
+      </div>
+    </section>
 
-            <!-- <div class="homev3-codeLegend" aria-label="Legend">
-              <span class="homev3-legendItem"><i class="homev3-swatch sw1" aria-hidden="true"></i>signaling</span>
-              <span class="homev3-legendItem"><i class="homev3-swatch sw2" aria-hidden="true"></i>transcription</span>
-              <span class="homev3-legendItem"><i class="homev3-swatch sw3" aria-hidden="true"></i>chromatin</span>
-            </div> -->
-
-            <!-- <div class="homev3-cardFoot">
-              <strong>Import data -  Build metacells - Visualize projection</strong>
-            </div> -->
+    <section id="research">
+      <div class="container">
+        <h2>Research</h2>
+        <div class="panel-list">
+          <article class="panel panel--media">
+            <img src="./img/Research/R1.png" alt="Research image">
+            <div class="panel-body">
+              <p class="panel-lead">Cellular differentiation transforms a single-cell zygote into a complex multi-cellular organism composed of various tissue and cell types. It's fascinating to understand how this is achieved despite genetic homogeneity.</p>
+              <p>The overarching goal of the lab is to unravel the principle of epigenetic regulation in cell fate decisions. We employ embryogenesis, gametogenesis, in vitro models and synthesize experimental and computational frameworks to precisely resolve phenotypes and gene functions, effectively disentangling cell-intrinsic and non-cell-autonomous effects over time.</p>
+            </div>
           </article>
         </div>
-
-        <div class="homev3-bottom" data-reveal>
-          <div class="homev3-tags" aria-label="Keywords">
-            <span class="homev3-tag">Gastrulation</span>
-            <span class="homev3-tag">DNA methylation</span>
-            <span class="homev3-tag">Heterochromatin</span>
-            <span class="homev3-tag">Cell-fate decision</span>
+        <h3 class="research-section-title">Research Aims</h3>
+        <div class="research-carousel">
+          <div class="research-carousel-track" id="researchCarousel">
+            <figure class="research-slide active">
+              <img src="./img/Research/R2.png" alt="Aim 1: Epigenetic dynamics during embryogenesis">
+              <figcaption class="research-slide-caption">Aim 1: Epigenetic dynamics during embryogenesis</figcaption>
+            </figure>
+            <figure class="research-slide">
+              <img src="./img/Research/R3.png" alt="Aim 2: Chromatin regulation in cell fate">
+              <figcaption class="research-slide-caption">Aim 2: Chromatin regulation in cell fate decisions</figcaption>
+            </figure>
+            <figure class="research-slide">
+              <img src="./img/Research/R4.png" alt="Aim 3: Gene regulatory networks">
+              <figcaption class="research-slide-caption">Aim 3: Gene regulatory networks in development</figcaption>
+            </figure>
+          </div>
+          <button class="research-nav prev" id="researchPrev" aria-label="Previous">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <button class="research-nav next" id="researchNext" aria-label="Next">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+          <div class="research-dots" id="researchDots">
+            <button class="dot active" data-index="0" aria-label="Slide 1"></button>
+            <button class="dot" data-index="1" aria-label="Slide 2"></button>
+            <button class="dot" data-index="2" aria-label="Slide 3"></button>
           </div>
         </div>
       </div>
     </section>
 
-<!-- Research -->
-    <section id="research">
-      <div class="container">
-        <h2>Research</h2>
-
-        <div class="panel-list">
-          <article class="panel panel--media">
-            <img src="./img/Research/R1.png" alt="Research image">
-            <div class="panel-body">
-                <p>Cellular differentiation transforms a single-cell zygote into a complex multi-cellular organism composed of various tissue and cell types. It's fascinating to understand how this is achieved despite genetic homogeneity.</p>
-                <p>The overarching goal of the lab is to unravel the principle of epigenetic regulation in cell fate decisions. We employ embryogenesis, gametogenesis, in vitro models and synthesize experimental and computational frameworks to precisely resolve phenotypes and gene functions, effectively disentangling cell-intrinsic and non-cell-autonomous effects over time.</p>
-            </div>
-          </article>
-        </div>
-        <br/>
-
-        <div>
-          <!-- <article class="panel panel--media"> -->
-            <img src="./img/Research/R2.png" alt="Research image">
-          <!-- </article> -->
-        </div>
-        <br/>
-
-        <div>
-            <img src="./img/Research/R3.png" alt="Research image">
-        </div>
-        <br/> 
-
-        <div>
-            <img src="./img/Research/R4.png" alt="Research image">
-        </div>
-      </div> 
-    </section>
-
-    <!-- Team -->
     <section id="team">
       <div class="container">
         <h2>Principal Investigator</h2>
@@ -178,152 +154,54 @@ metacells = mc.pl.collect_metacells(raw,
             </div>
           </div>
         </div>
-
-        <!-- 分割 -->
         <hr class="divider">
-
-        <!-- Graduate student -->
         <h2>Current Members</h2>
         <div class="team-grid team-grid--two">
-          <div class="team-member">
-            <img src="./img/People/WJF.jpg" alt="Jinfang Wang">
-            <div class="member-info">
-              <h3>Jinfang Wang</h3>
-              <p><strong>Postdoctoral Fellow (2024-)</strong></p>
-              <p>PhD degree, Xiamen University</p>
-              <p>Bachelor degree, Soochow University</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/ZY.jpg" alt="Ying Zhu">
-            <div class="member-info">
-              <h3>Ying Zhu</h3>
-              <p><strong>PhD student (2024-)</strong></p>
-              <p>Bachelor degree, Shenzhen University</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/DSL.jpg" alt="Shuailin Du">
-            <div class="member-info">
-              <h3>Shuailin Du</h3>
-              <p><strong>PhD student (2024-)</strong></p>
-              <p>Master degree, Xiamen University</p>
-              <p>Bachelor degree, Zhejiang Chinese Medical University</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/HJY.jpg" alt="Jinyi He">
-            <div class="member-info">
-              <h3>Jingyi He</h3>
-              <p><strong>PhD student (2025-)</strong></p>
-              <p>Bachelor degree, Zhejiang Normal University</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/QJ.jpg" alt="Jing Qian">
-            <div class="member-info">
-              <h3>Jing Qian</h3>
-              <p><strong>PhD student (2025-)</strong></p>
-              <p>Bachelor degree, Soochow University</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/WS.jpg" alt="Shuo Wang">
-            <div class="member-info">
-              <h3>Shuo Wang</h3>
-              <p><strong>PhD student (2025-)</strong></p>
-              <p>Bachelor degree, Soochow University</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/GQ.pic.jpg" alt="Qi Geng">
-            <div class="member-info">
-              <h3>Qi Geng</h3>
-              <p><strong>Visiting student (2025-)</strong></p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/DJR.jpg" alt="Jieran Don">
-            <div class="member-info">
-              <h3>Jieran Don</h3>
-              <p><strong>Research Assistant (2025-)</strong></p>
-                <p>Master degree, Sichuan Agricultural University</p>
-                <p>Bachelor degree,  Sichuan University of Traditional Chinese Medicine</p>
-            </div>
-          </div>
-
-          <div class="team-member">
-            <img src="./img/People/MWY.jpg" alt="Weiyuan Ma">
-            <div class="member-info">
-              <h3>Weiyuan Ma</h3>
-              <p><strong>Research Assistant (2025-)</strong></p>
-                <p>Bachelor degree, South China Agricultural University</p>
-            </div>
-          </div>
-
+          <div class="team-member"><img src="./img/People/ZY.jpg" alt="Ying Zhu"><div class="member-info"><h3>Ying Zhu</h3><p><strong>PhD student (2024-)</strong></p><p>Bachelor degree, Shenzhen University</p></div></div>
+          <div class="team-member"><img src="./img/People/DSL.jpg" alt="Shuailin Du"><div class="member-info"><h3>Shuailin Du</h3><p><strong>PhD student (2024-)</strong></p><p>Master degree, Xiamen University</p><p>Bachelor degree, Zhejiang Chinese Medical University</p></div></div>
+          <div class="team-member"><img src="./img/People/HJY.jpg" alt="Jinyi He"><div class="member-info"><h3>Jingyi He</h3><p><strong>PhD student (2025-)</strong></p><p>Bachelor degree, Zhejiang Normal University</p></div></div>
+          <div class="team-member"><img src="./img/People/QJ.jpg" alt="Jing Qian"><div class="member-info"><h3>Jing Qian</h3><p><strong>PhD student (2025-)</strong></p><p>Bachelor degree, Soochow University</p></div></div>
+          <div class="team-member"><img src="./img/People/WS.jpg" alt="Shuo Wang"><div class="member-info"><h3>Shuo Wang</h3><p><strong>PhD student (2025-)</strong></p><p>Bachelor degree, Soochow University</p></div></div>
+          <div class="team-member"><img src="./img/People/MWY.jpg" alt="Weiyuan Ma"><div class="member-info"><h3>Weiyuan Ma</h3><p><strong>Research Assistant (2025-)</strong></p><p>Bachelor degree, South China Agricultural University</p></div></div>
         </div>
-
-        <!-- 分割 -->
         <hr class="divider">
-
         <h2>Alumni</h2>
-        <!-- <div class="team-grid team-grid--two">
-          <div class="team-member">
-            <img src="./img/image copy.png" alt="Member">
-            <div class="member-info">
-              <h3>member</h3>
-              <p>Visiting Student</p>
-              <p>2024.10-2025.1</p>
-            </div>
-          </div>
-        </div> -->
+        <div class="team-grid team-grid--two">
+          <div class="team-member"><img src="./img/People/WJF.jpg" alt="Jinfang Wang"><div class="member-info"><h3>Jinfang Wang</h3><p><strong>Postdoctoral Fellow (2024-)</strong></p><p>PhD degree, Xiamen University</p><p>Bachelor degree, Soochow University</p></div></div>
+          <div class="team-member"><img src="./img/People/GQ.pic.jpg" alt="Qi Geng"><div class="member-info"><h3>Qi Geng</h3><p><strong>Visiting student (2025-)</strong></p></div></div>
+          <div class="team-member"><img src="./img/People/DJR.jpg" alt="Jieran Don"><div class="member-info"><h3>Jieran Don</h3><p><strong>Research Assistant (2025-)</strong></p><p>Master degree, Sichuan Agricultural University</p><p>Bachelor degree, Sichuan University of Traditional Chinese Medicine</p></div></div>
+        </div>
       </div>
     </section>
 
-    <!-- Publication -->
     <section id="pub">
       <div class="container">
         <h2>Publication</h2>
         <ul class="publication-list">
-<li>[1] Akhiad Bercovich, Aviezer Lifshitz, Michal Eldar, <b>Saifeng Cheng</b>, Roni Stok Ranen, Yonatan Stelzer, Amos Tanay#. (2025). IceQream: Quantitative chromosome accessibility analysis using physical TF models. <em><b>Nature Communication</b></em> 16, 8984. 10.1038/s41467-025-63925-x.</li><br/>
-<li>[2] Ron Hadas*, Hernan Rubinstein*, Markus Mittnenzweig*, Yoav Mayshar, Raz Ben-Yair, <b>Saifeng Cheng</b>, Alejandro Aguilera-Castrejon, Netta Reines, Ayelet-Hashahar Orenbuch, Aviezer Lifshitz, Dong-Yuan Chen, Michael B Elowitz, Magdalena Zernicka-Goetz, Jacob H Hanna, Amos Tanay#, Yonatan Stelzer#. (2024). Temporal BMP4 effects on mouse embryonic and extraembryonic development. <em><b>Nature</b></em> 634, 652-661. 10.1038/s41586-024-07937-5</li><br/>
-<li>[3] Yoav Mayshar*, Ofir Raz*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Netta Reines, Markus Mittnenzweig, Oren Ben-Kiki, Aviezer Lifshitz, Amos Tanay#, Yonatan Stelzer#. (2023). Time-aligned hourglass gastrulation models in rabbit and mouse. <em><b>Cell </b></em>186, 2610-2627.e18. 10.1016/j.cell.2023.04.037.</li><br/>
-<li>[4] Marko Dunjić*, Felix Jonas*, Gilad Yaakov*, Roye More, Yoav Mayshar, Yoach Rais, Ayelet-Hashahar Orenbuch, <b>Saifeng Cheng</b>, Naama Barkai, Yonatan Stelzer. (2023). Histone exchange sensors reveal variant specific dynamics in mouse embryonic stem cells. <em><b>Nat Commun</b></em> 14, 1-19. 10.1038/s41467-023-39477-3.</li><br/>
-<li>[5] <b>Saifeng Cheng</b>, Yoav Mayshar, Yonatan Stelzer. (2023). Induced epigenetic changes memorized across generations in mice. <em><b>Cell</b></em> 186, 683-685. 10.1016/j.cell.2023.01.023.</li><br/>
-<li>[6] <b>Saifeng Cheng*</b>, Markus Mittnenzweig*, Yoav Mayshar, Aviezer Lifshitz, Marko Dunjić, Yoach Rais, Raz Ben-Yair, Stephanie Gehrs, Elad Chomsky, Zohar Mukamel, Hernan Rubinstein, Katharina Schlereth, Netta Reines, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2022). The intrinsic and extrinsic effects of TET proteins during gastrulation. <em><b>Cell</b></em> 185, 3169-3185.e20.</li><br/>
-<li>[7] Markus Mittnenzweig*, Yoav Mayshar*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Yoach Rais, Elad Chomsky, Netta Reines, Anna Uzonyi, Lior Lumerman, Aviezer Lifshitz, Zohar Mukamel, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2021). A single-embryo, single-cell time-resolved model for mouse gastrulation. <em><b>Cell</b></em> 184, 2825-2842.e22. 10.1016/j.cell.2021.04.004.</li><br/>
-<li>[8] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li><br/>
-<li>[9] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li><br/>
+<li>[1] Akhiad Bercovich, Aviezer Lifshitz, Michal Eldar, <b>Saifeng Cheng</b>, Roni Stok Ranen, Yonatan Stelzer, Amos Tanay#. (2025). IceQream: Quantitative chromosome accessibility analysis using physical TF models. <em><b>Nature Communication</b></em> 16, 8984. 10.1038/s41467-025-63925-x.</li>
+<li>[2] Ron Hadas*, Hernan Rubinstein*, Markus Mittnenzweig*, Yoav Mayshar, Raz Ben-Yair, <b>Saifeng Cheng</b>, Alejandro Aguilera-Castrejon, Netta Reines, Ayelet-Hashahar Orenbuch, Aviezer Lifshitz, Dong-Yuan Chen, Michael B Elowitz, Magdalena Zernicka-Goetz, Jacob H Hanna, Amos Tanay#, Yonatan Stelzer#. (2024). Temporal BMP4 effects on mouse embryonic and extraembryonic development. <em><b>Nature</b></em> 634, 652-661. 10.1038/s41586-024-07937-5</li>
+<li>[3] Yoav Mayshar*, Ofir Raz*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Netta Reines, Markus Mittnenzweig, Oren Ben-Kiki, Aviezer Lifshitz, Amos Tanay#, Yonatan Stelzer#. (2023). Time-aligned hourglass gastrulation models in rabbit and mouse. <em><b>Cell </b></em>186, 2610-2627.e18. 10.1016/j.cell.2023.04.037.</li>
+<li>[4] Marko Dunjić*, Felix Jonas*, Gilad Yaakov*, Roye More, Yoav Mayshar, Yoach Rais, Ayelet-Hashahar Orenbuch, <b>Saifeng Cheng</b>, Naama Barkai, Yonatan Stelzer. (2023). Histone exchange sensors reveal variant specific dynamics in mouse embryonic stem cells. <em><b>Nat Commun</b></em> 14, 1-19. 10.1038/s41467-023-39477-3.</li>
+<li>[5] <b>Saifeng Cheng</b>, Yoav Mayshar, Yonatan Stelzer. (2023). Induced epigenetic changes memorized across generations in mice. <em><b>Cell</b></em> 186, 683-685. 10.1016/j.cell.2023.01.023.</li>
+<li>[6] <b>Saifeng Cheng*</b>, Markus Mittnenzweig*, Yoav Mayshar, Aviezer Lifshitz, Marko Dunjić, Yoach Rais, Raz Ben-Yair, Stephanie Gehrs, Elad Chomsky, Zohar Mukamel, Hernan Rubinstein, Katharina Schlereth, Netta Reines, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2022). The intrinsic and extrinsic effects of TET proteins during gastrulation. <em><b>Cell</b></em> 185, 3169-3185.e20.</li>
+<li>[7] Markus Mittnenzweig*, Yoav Mayshar*, <b>Saifeng Cheng</b>, Raz Ben-Yair, Ron Hadas, Yoach Rais, Elad Chomsky, Netta Reines, Anna Uzonyi, Lior Lumerman, Aviezer Lifshitz, Zohar Mukamel, Ayelet-Hashahar Orenbuch, Amos Tanay#, Yonatan Stelzer#. (2021). A single-embryo, single-cell time-resolved model for mouse gastrulation. <em><b>Cell</b></em> 184, 2825-2842.e22. 10.1016/j.cell.2021.04.004.</li>
+<li>[8] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li>
+<li>[9] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li>
 </ul>
         <a class="google_scholar" href="https://scholar.google.com/citations?hl=en&amp;user=rYfo4WcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar : https://scholar.google.com/</a>
       </div>
     </section>
 
-    <!-- Join us -->
     <section id="contact">
       <div class="container">
         <div class="join-info">
           <div class="join-content">
             <h2>Positions</h2>
-
             <h3>Post-doctoral position</h3>
-            <p>We are looking for motivated postdoctoral fellows with strong background in developmental biology,
-               epigenetics, single-cell genomics, computational biology or related fields. Candidates with 
-               experience in mouse embryology and gene editing are highly preferred. Please send your CV, 
-               research interests and contact information of three references to me.</p> 
-              <br/>
+            <p>We are looking for motivated postdoctoral fellows with strong background in developmental biology, epigenetics, single-cell genomics, computational biology or related fields. Candidates with experience in mouse embryology and gene editing are highly preferred. Please send your CV, research interests and contact information of three references to me.</p>
+            <br/>
             <h3>Graduate students</h3>
-              <p>If you are insterested in epigenetics and embryo development, please have a try in our lab!</p>
-
-
-
+            <p>If you are interested in epigenetics and embryo development, please have a try in our lab!</p>
             <h2>Contact us</h2>
             <p>If you are interested in join us, please email me!</p>
             <p><b>Email</b> : chengsaifeng[at]westlake.edu.cn</p>
@@ -334,12 +212,7 @@ metacells = mc.pl.collect_metacells(raw,
     </section>
   </main>
 
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Cheng Lab.</p>
-    </div>
-  </footer>
-
+  <footer><div class="container"><p>&copy; 2026 Cheng Lab.</p></div></footer>
   <script src="./scripts.js"></script>
 </body>
 </html>
