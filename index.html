@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en" data-lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,34 +12,16 @@
 </head>
 <body>
 
-  <!-- Landing / Splash Page -->
-  <div id="landing" aria-label="Welcome to Cheng Lab">
-    <!-- Dreamy background blobs -->
-    <div class="landing-dream" aria-hidden="true">
-      <div class="landing-blob landing-blob-1"></div>
-      <div class="landing-blob landing-blob-2"></div>
-      <div class="landing-blob landing-blob-3"></div>
-      <div class="landing-blob landing-blob-4"></div>
-    </div>
-    <div class="landing-card">
-      <div class="landing-content">
-        <h1 class="landing-title">Cheng Lab</h1>
-        <button class="landing-enter" type="button">
-          <span>Enter</span>
-        </button>
-      </div>
-    </div>
-  </div>
-
   <header>
     <nav aria-label="Primary">
       <ul>
-        <li><a href="#home" data-target="home">Home</a></li>
-        <li><a href="#research" data-target="research">Research</a></li>
-        <li><a href="#team" data-target="team">Team</a></li>
-        <li><a href="#pub" data-target="pub">Publications</a></li>
-        <li><a href="#contact" data-target="contact">Join us</a></li>
+        <li><a href="#home" data-target="home" data-i18n="nav_home">Home</a></li>
+        <li><a href="#research" data-target="research" data-i18n="nav_research">Research</a></li>
+        <li><a href="#team" data-target="team" data-i18n="nav_team">Team</a></li>
+        <li><a href="#pub" data-target="pub" data-i18n="nav_publications">Publications</a></li>
+        <li><a href="#contact" data-target="contact" data-i18n="nav_contact">Join us</a></li>
       </ul>
+      <button class="lang-toggle" id="langToggle" aria-label="Toggle Chinese/English" title="Switch language">中</button>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark/light theme" title="Toggle theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -49,19 +31,49 @@
 
   <main id="content">
     <section id="home">
-      <div class="container home-shell">
-        <div class="home-hero" data-reveal>
-          <p class="home-kicker">Cheng Lab · Westlake University</p>
-          <h1 class="home-title">Epigenetic Regulation in Development</h1>
-          <p class="home-lead">Gastrulation is a pivotal window in mouse development: epiblast cells undergo coordinated morphogenesis and fate decisions to establish the three germ layers. We build quantitative, time-resolved views of these transitions and test how gene regulation and chromatin mechanisms shape lineage commitment.</p>
+      <div class="home-hero-full">
+        <div class="hero-overlay"></div>
+        <div class="hero-content container">
+          <p class="hero-kicker" data-i18n="hero_kicker">Cheng Lab · Westlake University</p>
+          <h1 class="hero-title" data-i18n="hero_title">Epigenetic Regulation in Development</h1>
+          <p class="hero-lead" data-i18n="hero_lead">Decoding the epigenetic mechanisms that orchestrate cell fate decisions during gastrulation</p>
+        </div>
+        <div class="hero-scroll-indicator" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 13l5 5 5-5"/><path d="M7 6l5 5 5-5"/></svg>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="home-highlights">
+          <div class="highlight-card" data-reveal>
+            <div class="highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M12 2v4"/><path d="M12 18v4"/><path d="M4.93 4.93l2.83 2.83"/><path d="M16.24 16.24l2.83 2.83"/><path d="M2 12h4"/><path d="M18 12h4"/><path d="M4.93 19.07l2.83-2.83"/><path d="M16.24 7.76l2.83-2.83"/></svg>
+            </div>
+            <h3 data-i18n="hl_atlas_title">Single-Cell Embryo Atlas</h3>
+            <p data-i18n="hl_atlas_desc">Mapping cell fate decisions during gastrulation at single-cell resolution with time-resolved metacell projections</p>
+          </div>
+          <div class="highlight-card" data-reveal>
+            <div class="highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10"/></svg>
+            </div>
+            <h3 data-i18n="hl_epi_title">Epigenetic Regulation</h3>
+            <p data-i18n="hl_epi_desc">Decoding how chromatin accessibility and histone modifications control gene expression during lineage commitment</p>
+          </div>
+          <div class="highlight-card" data-reveal>
+            <div class="highlight-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 8l3 3-3 3"/><path d="M13 14h4"/></svg>
+            </div>
+            <h3 data-i18n="hl_comp_title">Computational Methods</h3>
+            <p data-i18n="hl_comp_desc">Developing tools for metacell projection and multi-omics integration to resolve developmental trajectories</p>
+          </div>
         </div>
 
         <div class="home-workbench" data-reveal>
           <article class="home-atlas" aria-label="Single-cell embryo atlas UMAP visualization">
             <div class="atlas-head">
               <div>
-                <h2 class="atlas-title">Single-Cell Embryo Atlas</h2>
-                <p class="atlas-caption">Metacell projection for time-resolved gastrulation states.</p>
+                <h2 class="atlas-title" data-i18n="atlas_title">Single-Cell Embryo Atlas</h2>
+                <p class="atlas-caption" data-i18n="atlas_caption">Metacell projection for time-resolved gastrulation states.</p>
               </div>
               <div class="umap-switch" role="tablist" aria-label="UMAP view switch">
                 <button type="button" class="umap-btn is-active" data-umap-view="3d" aria-selected="true">3D</button>
@@ -79,10 +91,10 @@
 
           <aside class="home-method" aria-label="Computational method for metacell analysis">
             <div class="method-copy">
-              <p class="method-label">Computational Method</p>
-              <h2 class="method-title">From single-cell matrix to metacell projection</h2>
-              <p class="method-route">single-cell matrix -&gt; gene filtering -&gt; metacell projection</p>
-              <p class="method-summary">A fixed random seed keeps gene filtering and metacell collection reproducible before projecting the grouped cells into UMAP space.</p>
+              <p class="method-label" data-i18n="method_label">Computational Method</p>
+              <h2 class="method-title" data-i18n="method_title">From single-cell matrix to metacell projection</h2>
+              <p class="method-route" data-i18n="method_route">single-cell matrix -&gt; gene filtering -&gt; metacell projection</p>
+              <p class="method-summary" data-i18n="method_summary">A fixed random seed keeps gene filtering and metacell collection reproducible before projecting the grouped cells into UMAP space.</p>
             </div>
             <pre class="method-code" aria-label="Metacell calculation method"><code>import anndata as ad
 import metacells as mc
@@ -98,17 +110,17 @@ mc.pl.umap_by_metacell(metacells)</code></pre>
 
     <section id="research">
       <div class="container">
-        <h2>Research</h2>
+        <h2 data-i18n="research_title">Research</h2>
         <div class="panel-list">
           <article class="panel panel--media">
             <img src="./img/Research/R1.png" alt="Research image">
             <div class="panel-body">
-              <p class="panel-lead">Cellular differentiation transforms a single-cell zygote into a complex multi-cellular organism composed of various tissue and cell types. It's fascinating to understand how this is achieved despite genetic homogeneity.</p>
-              <p>The overarching goal of the lab is to unravel the principle of epigenetic regulation in cell fate decisions. We employ embryogenesis, gametogenesis, in vitro models and synthesize experimental and computational frameworks to precisely resolve phenotypes and gene functions, effectively disentangling cell-intrinsic and non-cell-autonomous effects over time.</p>
+              <p class="panel-lead" data-i18n="research_lead">Cellular differentiation transforms a single-cell zygote into a complex multi-cellular organism composed of various tissue and cell types. It's fascinating to understand how this is achieved despite genetic homogeneity.</p>
+              <p data-i18n="research_desc">The overarching goal of the lab is to unravel the principle of epigenetic regulation in cell fate decisions. We employ embryogenesis, gametogenesis, in vitro models and synthesize experimental and computational frameworks to precisely resolve phenotypes and gene functions, effectively disentangling cell-intrinsic and non-cell-autonomous effects over time.</p>
             </div>
           </article>
         </div>
-        <h3 class="research-section-title">Research Aims</h3>
+        <h3 class="research-section-title" data-i18n="research_aims_title">Research Aims</h3>
         <div class="research-carousel">
           <div class="research-carousel-track" id="researchCarousel">
             <figure class="research-slide active">
@@ -136,12 +148,36 @@ mc.pl.umap_by_metacell(metacells)</code></pre>
             <button class="dot" data-index="2" aria-label="Slide 3"></button>
           </div>
         </div>
+
+        <div class="research-aims">
+          <article class="aim-card" data-reveal>
+            <div class="aim-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            </div>
+            <h3 data-i18n="aim1_title">Epigenetic Dynamics During Embryogenesis</h3>
+            <p data-i18n="aim1_desc">We investigate how chromatin accessibility and histone modifications change dynamically during gastrulation, using single-cell multi-omics to capture the temporal landscape of epigenetic reprogramming as cells transition through key developmental checkpoints.</p>
+          </article>
+          <article class="aim-card" data-reveal>
+            <div class="aim-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2"/><path d="M2 12h20"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10"/></svg>
+            </div>
+            <h3 data-i18n="aim2_title">Chromatin Regulation in Cell Fate</h3>
+            <p data-i18n="aim2_desc">We study how specific epigenetic regulators — including TET proteins and histone variants — influence lineage commitment during gastrulation, combining genetic perturbation with single-embryo, single-cell resolution approaches.</p>
+          </article>
+          <article class="aim-card" data-reveal>
+            <div class="aim-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+            </div>
+            <h3 data-i18n="aim3_title">Gene Regulatory Networks in Development</h3>
+            <p data-i18n="aim3_desc">We develop computational and experimental frameworks to reconstruct gene regulatory networks that drive cell fate decisions, integrating transcriptomic and chromatin data to identify key transcription factors and their downstream targets.</p>
+          </article>
+        </div>
       </div>
     </section>
 
     <section id="team">
       <div class="container">
-        <h2>Principal Investigator</h2>
+        <h2 data-i18n="team_pi">Principal Investigator</h2>
         <div class="team-grid team-grid--two">
           <div class="team-member">
             <img src="./img/People/CSF.png" alt="Saifeng Cheng">
@@ -155,7 +191,7 @@ mc.pl.umap_by_metacell(metacells)</code></pre>
           </div>
         </div>
         <hr class="divider">
-        <h2>Current Members</h2>
+        <h2 data-i18n="team_current">Current Members</h2>
         <div class="team-grid team-grid--two">
           <div class="team-member"><img src="./img/People/ZY.jpg" alt="Ying Zhu"><div class="member-info"><h3>Ying Zhu</h3><p><strong>PhD student (2024-)</strong></p><p>Bachelor degree, Shenzhen University</p></div></div>
           <div class="team-member"><img src="./img/People/DSL.jpg" alt="Shuailin Du"><div class="member-info"><h3>Shuailin Du</h3><p><strong>PhD student (2024-)</strong></p><p>Master degree, Xiamen University</p><p>Bachelor degree, Zhejiang Chinese Medical University</p></div></div>
@@ -165,7 +201,7 @@ mc.pl.umap_by_metacell(metacells)</code></pre>
           <div class="team-member"><img src="./img/People/MWY.jpg" alt="Weiyuan Ma"><div class="member-info"><h3>Weiyuan Ma</h3><p><strong>Research Assistant (2025-)</strong></p><p>Bachelor degree, South China Agricultural University</p></div></div>
         </div>
         <hr class="divider">
-        <h2>Alumni</h2>
+        <h2 data-i18n="team_alumni">Alumni</h2>
         <div class="team-grid team-grid--two">
           <div class="team-member"><img src="./img/People/WJF.jpg" alt="Jinfang Wang"><div class="member-info"><h3>Jinfang Wang</h3><p><strong>Postdoctoral Fellow (2024-)</strong></p><p>PhD degree, Xiamen University</p><p>Bachelor degree, Soochow University</p></div></div>
           <div class="team-member"><img src="./img/People/GQ.pic.jpg" alt="Qi Geng"><div class="member-info"><h3>Qi Geng</h3><p><strong>Visiting student (2025-)</strong></p></div></div>
@@ -176,7 +212,7 @@ mc.pl.umap_by_metacell(metacells)</code></pre>
 
     <section id="pub">
       <div class="container">
-        <h2>Publication</h2>
+        <h2 data-i18n="pub_title">Publications</h2>
         <ul class="publication-list">
 <li>[1] Akhiad Bercovich, Aviezer Lifshitz, Michal Eldar, <b>Saifeng Cheng</b>, Roni Stok Ranen, Yonatan Stelzer, Amos Tanay#. (2025). IceQream: Quantitative chromosome accessibility analysis using physical TF models. <em><b>Nature Communication</b></em> 16, 8984. 10.1038/s41467-025-63925-x.</li>
 <li>[2] Ron Hadas*, Hernan Rubinstein*, Markus Mittnenzweig*, Yoav Mayshar, Raz Ben-Yair, <b>Saifeng Cheng</b>, Alejandro Aguilera-Castrejon, Netta Reines, Ayelet-Hashahar Orenbuch, Aviezer Lifshitz, Dong-Yuan Chen, Michael B Elowitz, Magdalena Zernicka-Goetz, Jacob H Hanna, Amos Tanay#, Yonatan Stelzer#. (2024). Temporal BMP4 effects on mouse embryonic and extraembryonic development. <em><b>Nature</b></em> 634, 652-661. 10.1038/s41586-024-07937-5</li>
@@ -188,31 +224,44 @@ mc.pl.umap_by_metacell(metacells)</code></pre>
 <li>[8] Alejandro Aguilera-Castrejon*, Bernardo Oldak*, Tom Shani, Nadir Ghanem, Chen Itzkovich, Sharon Slomovich, Shadi Tarazi, Jonathan Bayerl, Valeriya Chugaeva, Muneef Ayyash, Shahd Ashouokhi, Daoud Sheban, Nir Livnat, Lior Lasman, Sergey Viukov, Mirie Zerbib, Yoseph Addadi, Yoach Rais, <b>Saifeng Cheng</b>, Yonatan Stelzer, Hadas Keren-Shaul, Raanan Shlomo, Rada Massarwa, Noa Novershtern, Itay Maza#, Jacob H Hanna#. (2021). Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. <em><b>Nature</b></em> 593, 119-124. 10.1038/s41586-021-03416-3.</li>
 <li>[9] <b>Saifeng Cheng</b>, Feng Tan, Yue Lu, Xiaoyun Liu, Tiantian Li, Wenjia Yuan, Yu Zhao, Dao-Xiu Zhou. (2018). WOX11 recruits a histone H3K27me3 demethylase to promote gene expression during shoot development in rice. <em><b>Nucleic Acids Res</b></em> 46, 2356-2369. 10.1093/nar/gky017.</li>
 </ul>
-        <a class="google_scholar" href="https://scholar.google.com/citations?hl=en&amp;user=rYfo4WcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate">Google Scholar : https://scholar.google.com/</a>
+        <a class="google_scholar" href="https://scholar.google.com/citations?hl=en&amp;user=rYfo4WcAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" data-i18n="pub_scholar">Google Scholar : https://scholar.google.com/</a>
       </div>
     </section>
 
     <section id="contact">
       <div class="container">
-        <div class="join-info">
-          <div class="join-content">
-            <h2>Positions</h2>
-            <h3>Post-doctoral position</h3>
-            <p>We are looking for motivated postdoctoral fellows with strong background in developmental biology, epigenetics, single-cell genomics, computational biology or related fields. Candidates with experience in mouse embryology and gene editing are highly preferred. Please send your CV, research interests and contact information of three references to me.</p>
-            <br/>
-            <h3>Graduate students</h3>
-            <p>If you are interested in epigenetics and embryo development, please have a try in our lab!</p>
-            <h2>Contact us</h2>
-            <p>If you are interested in join us, please email me!</p>
-            <p><b>Email</b> : chengsaifeng[at]westlake.edu.cn</p>
-            <p><b>Address</b> : 3-228/229, Yunqi campus, Westlake University, Hang Zhou, China</p>
-          </div>
+        <div class="contact-grid">
+          <article class="contact-card" data-reveal>
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <h2 data-i18n="contact_positions">Open Positions</h2>
+            <h3 data-i18n="contact_postdoc_title">Post-doctoral Position</h3>
+            <p data-i18n="contact_postdoc_desc">We are looking for motivated postdoctoral fellows with strong background in developmental biology, epigenetics, single-cell genomics, computational biology or related fields. Candidates with experience in mouse embryology and gene editing are highly preferred. Please send your CV, research interests and contact information of three references to me.</p>
+            <h3 data-i18n="contact_grad_title">Graduate Students</h3>
+            <p data-i18n="contact_grad_desc">If you are interested in epigenetics and embryo development, please have a try in our lab!</p>
+          </article>
+          <article class="contact-card" data-reveal>
+            <div class="contact-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h2 data-i18n="contact_us_title">Contact Us</h2>
+            <p data-i18n="contact_intro">If you are interested in joining us, please email me!</p>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+              <span>chengsaifeng[at]westlake.edu.cn</span>
+            </div>
+            <div class="contact-detail">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span data-i18n="contact_address">3-228/229, Yunqi campus, Westlake University, Hangzhou, China</span>
+            </div>
+          </article>
         </div>
       </div>
     </section>
   </main>
 
-  <footer><div class="container"><p>&copy; 2026 Cheng Lab.</p></div></footer>
+  <footer><div class="container"><p data-i18n="footer_copyright">&copy; 2026 Cheng Lab.</p></div></footer>
   <script src="./scripts.js"></script>
 </body>
 </html>
